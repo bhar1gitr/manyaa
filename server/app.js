@@ -43,7 +43,7 @@ app.post('/api/v1/paymentVarification', async (req, res) => {
         .digest("hex");
     const isAuthentic = expectedSignature === razorpay_signature;
     if (isAuthentic) {
-        res.redirect(`${process.env.REACT_APP_BACKEND_ADDRESS}/paymentsuccess?reference=${razorpay_payment_id}`);
+        res.redirect(`${process.env.REACT_APP_FRONTEND_ADDRESS}/paymentsuccess?reference=${razorpay_payment_id}`);
     } else {
         res.status(400).json({
             success: false,
