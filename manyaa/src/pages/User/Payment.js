@@ -16,8 +16,8 @@ const Payment = () => {
 
   const checkoutHandler = async (amount) => {
     try {
-      const {data:{key}} = await axios.get('process.env.REACT_APP_BACKEND_ADDRESS/api/v1/getKey')
-      const {data:{order}} = await axios.post('process.env.REACT_APP_BACKEND_ADDRESS/api/v1/checkout', {
+      const {data:{key}} = await axios.get(`${process.env.REACT_APP_BACKEND_ADDRESS}/api/v1/getKey`)
+      const {data:{order}} = await axios.post(`${process.env.REACT_APP_BACKEND_ADDRESS}/api/v1/checkout`, {
         amount
       });
       const options = {
@@ -28,7 +28,7 @@ const Payment = () => {
         description: "Test Transaction",
         image: "https://avatars.githubusercontent.com/u/97161064?v=4",
         order_id: order.id,
-        callback_url: "process.env.REACT_APP_BACKEND_ADDRESS/api/v1/paymentVarification",
+        callback_url: `${process.env.REACT_APP_BACKEND_ADDRESS}/api/v1/paymentVarification`,
         prefill: {
             name: "Gaurav Kumar",
             email: "gaurav.kumar@example.com",
