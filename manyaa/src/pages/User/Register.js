@@ -29,7 +29,7 @@ export default function Register() {
   const sendOTP = () => {
     setLoading(true);
     // http://localhost:4000
-    axios.post(`process.env/send-otp`, { email })
+    axios.post(`${process.env.REACT_APP_BACKEND_ADDRESS}/send-otp`, { email })
       .then((response) => {
         toast.success(response.data.message);
         setOtpText(true);
@@ -42,7 +42,7 @@ export default function Register() {
   };
   const verifyOTP = () => {
     setOtpLoading(true);
-    axios.post('http://localhost:4000/verify-otp', { email, otp })
+    axios.post(`${process.env.REACT_APP_BACKEND_ADDRESS}/verify-otp`, { email, otp })
       .then((response) => {
         toast.success(response.data.message);
         setSignupButton(true);
