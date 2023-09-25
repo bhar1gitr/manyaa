@@ -10,6 +10,7 @@ import Communication from "./pages/User/Communication";
 import ContentAccess from "./pages/User/ContentAccess";
 import PaymentSuccess from "./Components/PaymentSuccess";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Register from "./pages/User/Register";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/communication" exact element={<Communication/>} />
         <Route path="/content-access" exact element={<ContentAccess/>} />
         <Route path="/paymentsuccess" exact element={<PaymentSuccess/>}/>
+        <Route path="/register" exact element={<Register/>}/>
       </Routes>
     </Router>
   );
